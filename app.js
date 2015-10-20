@@ -5,7 +5,7 @@ var express = require('express'),
     mongoose=require('mongoose'),
     bodyParser = require('body-parser');
 
-var db = mongoose.connect('mongodb://localhost/businesstrackerApi');
+var db = mongoose.connect('mongodb://viv-mongolab:mongolab@2015@ds048368.mongolab.com:48368/businesstrackerapi');
 var Order = require('./models/orderModel')
 
 var app = express();
