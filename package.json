@@ -1,0 +1,18 @@
+{
+  "name": "businesstrackerapi",
+  "version": "1.0.0",
+  "description": "Api for business tracker app which will communicate with Mongo DB and Business tracker universal app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.4",
+    "mongoose": "^4.1.12"
+  }
+}
