@@ -5,7 +5,7 @@ var express = require('express'),
     mongoose=require('mongoose'),
     bodyParser = require('body-parser');
 
-var db = mongoose.connect('mongodb://viv-mongolab:mongolab@2015@ds048368.mongolab.com:48368/businesstrackerapi');
+var db = mongoose.connect('mongodb://localhost/businesstrackerApi');
 var Order = require('./models/orderModel')
 
 var app = express();
@@ -18,19 +18,36 @@ var orderRouter = express.Router();
 orderRouter.route('/Orders')
     .post(function (req,res) {
         var order = new Order(req.body);
-       order.save();
+        order.save();
         res.status(201).send(order);
 
     })
     .get(function(req,res){
-        Order.find(function (err,orders) {
+        var query = {};
+        if(req.query.custname)
+        {
+            query.custname=req.query.custname
+        }
+        else if(req.query.orderdate)
+        {
+            query.orderdate=req.query.orderdate;
+        }
+        Order.find(query,function (err,orders) {
             if(err)
                 res.status(500).send(err);
             else
                 res.json(orders);
         })
     });
-
+orderRouter.route('/Orders/:orderId')
+    .get(function(req,res){
+        Order.findById(req.params.orderId,function (err,order) {
+            if(err)
+                res.status(500).send(err);
+            else
+                res.json(order);
+        })
+    });
 app.use('/api', orderRouter);
 
 app.get('/', function (req,res) {
