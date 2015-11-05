@@ -13,6 +13,7 @@ var product = new Schema({
 var orderModel = new Schema({
     orderdate:{type:Date, default:Date.now},
     custname:{type:String},
+    custemail:{type:String},
     custaddress:{type:String},
     custphone:{type:Number},
     product:[product],
@@ -23,7 +24,8 @@ var orderModel = new Schema({
     paymentcomment:{type:String},
     orderstatus:{type:String},
     ordershipping:{type:String},
-    orderstatuscomment:{type:String}
+    orderstatuscomment:{type:String},
+    totalamount:{type:Number}
 });
 
 module.exports=mongoose.model('Order',orderModel);
