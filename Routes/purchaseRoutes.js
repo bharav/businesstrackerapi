@@ -18,8 +18,8 @@ var routes = function (Purchase) {
 			else if (req.query.purchasedate) {
 				var date = new Date(req.query.purchasedate);
 				var todate = new Date(req.query.purchasedate);
-				todate.setDate(todate.getDate()+1);
-				query.purchasedate = {$gte:date,$lt:todate};
+				todate.setDate(todate.getDate() + 1);
+				query.purchasedate = { $gte: date, $lt: todate };
 			}
 			Purchase.find(query, function (err, purchases) {
 				if (err)
@@ -47,25 +47,25 @@ var routes = function (Purchase) {
 			res.json(req.purchase);
 		})
 		.put(function (req, res) {
-				req.order.suppliername = req.body.suppliername	,
-				req.order.supplieremail = req.body.supplieremail,
-				req.order.supplieraddress = req.body.supplieraddress,
-				req.order.supplierphone = req.body.supplierphone,
-				req.order.product = req.body.product,
-				req.order.ppaymentstatus = req.body.ppaymentstatus,
-				req.order.ppaymenttype = req.body.ppaymenttype,
-				req.order.ppaymentfrombank = req.body.ppaymentfrombank,
-				req.order.ppaymentcomment = req.body.ppaymentcomment,
-				req.order.purchasestatus = req.body.purchasestatus,
-				req.order.purchasetatuscomment = req.body.purchasetatuscomment,
-				req.order.purchasetotalamount = req.body.purchasetotalamount,
-				req.order.save(function (err) {
-					if (err)
-						res.status(500).send(err);
-					else
-						res.json(req.purchase);
-				})
-				
+			req.order.suppliername = req.body.suppliername,
+			req.order.supplieremail = req.body.supplieremail,
+			req.order.supplieraddress = req.body.supplieraddress,
+			req.order.supplierphone = req.body.supplierphone,
+			req.order.product = req.body.product,
+			req.order.ppaymentstatus = req.body.ppaymentstatus,
+			req.order.ppaymenttype = req.body.ppaymenttype,
+			req.order.ppaymentfrombank = req.body.ppaymentfrombank,
+			req.order.ppaymentcomment = req.body.ppaymentcomment,
+			req.order.purchasestatus = req.body.purchasestatus,
+			req.order.purchasetatuscomment = req.body.purchasetatuscomment,
+			req.order.purchasetotalamount = req.body.purchasetotalamount,
+			req.order.save(function (err) {
+				if (err)
+					res.status(500).send(err);
+				else
+					res.json(req.purchase);
+			})
+
 		});
 	return purchaseRouter;
 };

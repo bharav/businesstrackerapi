@@ -23,7 +23,7 @@ var routes = function (Customer) {
 			})
 		});
 	customerRouter.use('/Customers/:custId', function (req, res, next) {
-	Customer.findById(req.params.custId, function (err, customer) {
+		Customer.findById(req.params.custId, function (err, customer) {
 			if (err)
 				res.status(500).send(err);
 			else if (customer) {
@@ -41,18 +41,18 @@ var routes = function (Customer) {
 			res.json(req.customer);
 		})
 		.put(function (req, res) {
-				req.customer.name = req.body.name,
-				req.customer.email = req.body.email,
-				req.customer.address = req.body.address,
-				req.customer.phone = req.body.phone,
-				req.customer.comment = req.body.comment
-				req.customer.save(function (err) {
-					if (err)
-						res.status(500).send(err);
-					else
-						res.json(req.customer);
-				})
-				
+			req.customer.name = req.body.name,
+			req.customer.email = req.body.email,
+			req.customer.address = req.body.address,
+			req.customer.phone = req.body.phone,
+			req.customer.comment = req.body.comment
+			req.customer.save(function (err) {
+				if (err)
+					res.status(500).send(err);
+				else
+					res.json(req.customer);
+			})
+
 		});
 	return customerRouter;
 };
