@@ -15,7 +15,7 @@ var app = express();
 var port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-var orderRouter = require('./Routes/orderRoutes')(Order);
+var orderRouter = require('./Routes/orderRoutes')(Order,Product);
 var purchaseRouter = require('./Routes/purchaseRoutes')(Purchase);
 var customerRouter = require('./Routes/customerRoutes')(Customer);
 var supplierRouter = require('./Routes/supplierRoutes')(Supplier);

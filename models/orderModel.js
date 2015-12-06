@@ -13,10 +13,6 @@ var product = new Schema({
 var orderModel = new Schema({
     orderdate:{type:Date, default:Date.now},
     custid:{type:String},
-    custname:{type:String},
-    custemail:{type:String},
-    custaddress:{type:String},
-    custphone:{type:Number},
     product:[product],
     paymentstatus:{type:Boolean, default:false},
     paymenttype:{type:String},
