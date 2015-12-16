@@ -63,10 +63,6 @@ var routes = function (Order,Product) {
 			res.json(req.order);
 		})
 		.put(function (req, res) {
-			req.order.custname = req.body.custname,
-			req.order.custemail = req.body.custemail,
-			req.order.custaddress = req.body.custaddress,
-			req.order.custphone = req.body.custphone,
 			req.order.product = req.body.product,
 			req.order.paymentstatus = req.body.paymentstatus,
 			req.order.paymenttype = req.body.paymenttype,

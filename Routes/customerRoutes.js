@@ -43,8 +43,14 @@ var routes = function (Customer) {
 		.put(function (req, res) {
 			req.customer.name = req.body.name,
 			req.customer.email = req.body.email,
-			req.customer.address = req.body.address,
-			req.customer.phone = req.body.phone,
+			req.customer.address1 = req.body.address1,
+			req.customer.address2 = req.body.address2,
+			req.customer.city = req.body.city,
+			req.customer.state = req.body.state,
+			req.customer.country = req.body.country,
+			req.customer.pincode = req.body.pincode,
+			req.customer.phone = req.body.phone, 	
+			req.customer.mobile = req.body.mobile,
 			req.customer.comment = req.body.comment
 			req.customer.save(function (err) {
 				if (err)
